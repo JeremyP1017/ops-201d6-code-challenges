@@ -1,0 +1,21 @@
+script was sourced from chatgpt but run to check function/ran in to issie whith grep 
+#!/bin/bash
+
+# Display the name of the computer
+echo "Computer Name: $(jeremy)"
+
+# Display information about the CPU
+echo -e "\nCPU Information:"
+lshw -class cpu | grep -E 'product|vendor|physical id|bus info|width'
+
+# Display information about the RAM
+echo -e "\nRAM Information:"
+lshw -class memory | grep -E 'description|physical id|size'
+
+# Display information about the display adapter
+echo -e "\nDisplay Adapter Information:"
+lshw -class display | grep -E 'description|product|vendor|physical id|bus info|width|clock|capabilities|configuration|resources'
+
+# Display information about the network adapter
+echo -e "\nNetwork Adapter Information:"
+lshw -class network | grep -E 'description|product|vendor|physical id|bus info|logical name|version|serial|size|capacity|width|clock|capabilities|configuration|resources'

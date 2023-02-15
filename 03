@@ -1,0 +1,8 @@
+#!/bin/bash
+
+function print_login_history() {
+    local last_output=$(last)
+    echo "$last_output"
+}
+
+print_login_history

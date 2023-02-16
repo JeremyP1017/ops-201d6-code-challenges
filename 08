@@ -1,0 +1,1 @@
+ROBOCOPY "C:\Users\Jorge\Desktop\Work Files" "C:\Backup\Work Files" /E /COPYALL /R:2 /W:1

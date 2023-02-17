@@ -1,0 +1,9 @@
+$events = Get-EventLog -LogName System -EntryType Error,Warning -After (Get-Date).AddDays(-7)
+
+foreach ($event in $events) {
+    Write-Output "Event ID: $($event.EventID)"
+    Write-Output "Source: $($event.Source)"
+    Write-Output "Message: $($event.Message)"
+    Write-Output "Time Generated: $($event.TimeGenerated)"
+    Write-Output "lat24-"
+}

@@ -1,0 +1,26 @@
+The first command enables the File and Printer Sharing firewall rule so that the endpoint can share files and printers with other devices on the network
+.# Enable File and Printer Sharing
+1.Set-NetFirewallRule -DisplayGroup "File and Printer Sharing" -Enabled True
+
+The second command creates a new firewall rule to allow ICMP traffic, which is necessary for tools like ping and traceroute to function.
+# Allow ICMP traffic
+2.New-NetFirewallRule -DisplayName "ICMPv4" -Protocol ICMPv4
+
+The third command enables PowerShell Remoting, which allows remote access to the endpoint's PowerShell command line.
+# Enable Remote management
+3.Enable-PSRemoting -Force
+
+The fourth command removes bloatware applications that are commonly installed on Windows 10 but may not be necessary for all users. In this example,
+we've excluded the Microsoft Store app, Calculator, Sticky Notes, and Camera app from the list of apps to be removed.
+# Remove bloatware
+4.Get-AppxPackage -AllUsers | Where-Object {$_.Name -notlike "*store*" -and $_.Name -notlike "*calc*" -and $_.Name -notlike "*sticky*" -and $_.Name -notlike 
+"*camera*"} | Remove-AppxPackage
+
+The fifth command enables the Hyper-V role, which allows the endpoint to run virtual machines.
+# Enable Hyper-V
+5.Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+
+
+The sixth command disables the SMBv1 protocol, which is an insecure protocol that can be used for malware attacks.
+# Disable SMBv1
+6.Set-SmbServerConfiguration -EnableSMB1Protocol $false

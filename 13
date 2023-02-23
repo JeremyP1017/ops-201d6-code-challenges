@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Prompt the user to enter a domain name
+echo "enter a domain name: "
+read domain
+
+# Use the whois command to display domain registration information
+echo "WHOIS information for $domain:"
+whois $domain
+
+# Use the dig command to display domain DNS information
+echo "DNS information for $domain:"
+dig $domain
+
+# Use the host command to display domain name to IP address resolution
+echo "IP address for $domain:"
+host $domain
+
+# Use the nslookup command to display domain name to IP address resolution
+echo "IP address for $domain (using nslookup):"
+nslookup $domain
+
+This script prompts the user to enter a domain name, and then uses the whois, dig, host, and nslookup commands to display information about
+the domain. The output is displayed on the terminal.
